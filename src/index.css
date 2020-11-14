@@ -514,7 +514,7 @@ img{
   }
 
   .banner .banner-contents p{
-    max-width: 400px;
+    max-width: 380px;
     font-size: 1.1rem;
   }
 
@@ -545,6 +545,18 @@ img{
 
   .header-btn{
     margin: -40px auto;
+  }
+
+  .netflix-tv .watch-tv{
+    position: absolute;
+    max-width: 70%;
+    max-height: 54%;
+    top: 20%;
+    left: 15%;
+  }
+
+  .netflix-devices .watch-tv{
+    max-width: 58%;
   }
 
   .netflix-tv .container, .netflix-mobile .container, .netflix-devices .container, .netflix-faq .container{
