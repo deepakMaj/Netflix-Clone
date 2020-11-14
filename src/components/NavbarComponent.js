@@ -30,7 +30,7 @@ const NavbarComponent = () => {
         </div>
         {user === null ?
           <div>
-            <button className="navbar-signInBtn" onClick={() => signInWithGoogleClick}>Sign In</button>
+            <button className="navbar-signInBtn" onClick={signInWithGoogleClick}>Sign In</button>
           </div>
           :
           <div className="logo flex">
@@ -38,7 +38,7 @@ const NavbarComponent = () => {
               <img src={userLogo} alt={user.displayName} title={user.displayName} className="user-logo" />
             </div>
             <div>
-              <button className="navbar-signInBtn" onClick={() => signOutClick}>Sign Out</button>
+              <button className="navbar-signInBtn" onClick={signOutClick}>Sign Out</button>
             </div>
           </div>
         }

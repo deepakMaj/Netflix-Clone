@@ -44,7 +44,7 @@ const HomeComponent = () => {
             <p>Ready to watch? Sign in with Google account.</p>
           </div>
           <div className="header-btn">
-            <button className="btn" onClick={() => signInWithGoogle}>
+            <button className="btn" onClick={signInWithGoogle}>
               GET STARTED
               <img src={arrow} alt="" className="arrow" />
             </button>
