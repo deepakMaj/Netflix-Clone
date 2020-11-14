@@ -1,13 +1,593 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+  --red-color: #e50914;
+  --gray-color: #757575
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  color: #fff;
+  background-color: #111;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+h1{
+  font-size: 3.2rem;
+  font-weight: bolder;
+  margin: 15px 0;
+  line-height: 1.2;
+}
+
+a{
+  color:var(--gray-color);
+}
+
+h2, h3, h4, h5, h6{
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+
+p{
+  margin: 10px 0;
+}
+
+img{
+  width: 100%;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--red-color);
+}
+
+::-webkit-scrollbar-track{
+  background: #fffeee;
+}
+
+/* Utilities */
+
+.flex{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.container{
+  max-width: 1440px;
+  padding: 15px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3em;
+}
+
+/* Loader */
+
+.loader{
+  height: 50vh;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+}
+
+/* Navbar */
+
+.navbar{
+  height: 5em;
+  padding: 0.8rem 0rem;
+}
+
+.navbar .navbar-logo{
+  height: 6rem;
+  width: auto;
+  position: absolute;
+  top: -2px;
+}
+
+.navbar-signInBtn{
+  background-color: var(--red-color);
+  padding: 8px 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.navbar .logo .user-logo{
+  width: 45px;
+  margin: 0 20px 0 15px;
+  object-fit: contain;
+}
+
+.navbar .container .flex{
+  align-items: flex-end;
+}
+
+.navbar .container .logo h4{
+  margin: 0;
+}
+
+/* Main */
+
+.main{
+  height: 80vh;
+  border-bottom: 8px solid #222;
+}
+
+/* Background */
+
+.background-img, .background-gradient{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+
+.header-text{
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  max-width: 550px;
+  padding: 75px 0;
+  margin: 0 auto;
+}
+
+.header-text h2{
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.header-text p{
+  font-size: 1.2rem;
+}
+
+.header-btn{
+  display: flex;
+  justify-content: center;
+  margin: -70px auto;
+}
+
+.header-btn .btn{
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  padding: 8px;
+  background-color: var(--red-color);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.arrow{
+  position: relative;
+  top: 7%;
+  height: 15px;
+  margin-left: 5px;
+  transform: none;
+  -moz-transform: translateY(3px);
+}
+
+/* Netflix TV, Mobile & Devices */
+
+.netflix-tv, .netflix-mobile, .netflix-devices, .netflix-faq{
+  border-bottom: 8px solid #222;
+  background-color: black;
+}
+
+.netflix-tv .container{
+  padding: 3rem 5rem;
+}
+
+.netflix-tv .flix-tv, .netflix-devices .flix-laptop{
+  position: relative;
+  z-index: 2;
+}
+
+.netflix-tv .watch-tv{
+  position: absolute;
+  max-width: 66.5%;
+  max-height: 54%;
+  top: 20.5%;
+  left: 16%;
+}
+
+.netflix-devices .watch-tv{
+  position: absolute;
+  position: absolute;
+  max-width: 56%;
+  max-height: 50%;
+  top: 8%;
+  left: 21%;
+}
+
+.netflix-tv .watch, .netflix-devices .watch{
+  position: relative;
+  overflow: hidden;
+}
+
+.netflix-tv .watch-tv .tv, .netflix-devices .watch-tv .tv{
+  width: 100%;
+  height: 100%;
+}
+
+.netflix-mobile .container, .netflix-devices .container{
+  padding: 3rem 4rem;
+}
+
+/* Download Card */
+
+.download-card{
+  position: absolute;
+  width: 20em;
+  height: 5em;
+  background-color: black;
+  border: 3px solid #333;
+  border-radius: 10px;
+  padding: 10px 12px;
+  left: 15.5%;
+  transform: translateY(-130%);
+  box-shadow: 0 0 2em 0 #000;
+}
+
+.download-card .boxshot{
+  width: 2.5rem;
+}
+
+.download-card .flex{
+  justify-content: flex-start;  
+  align-items: center;
+}
+
+.download-card .download-text{
+  margin: 0 15px;
+}
+
+.download-card .download-text h5{
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.download-card .download-text p{
+  font-size: 14px;
+  color: #0071eb;
+  margin: 0;
+}
+
+.download-card .download-gif{
+  width: 3rem;
+  margin-left: 3rem;
+}
+
+/* Netflix FAQ */
+
+.netflix-faq .flex{
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.netflix-faq .items{
+  background-color: #303030;
+  justify-content: space-between;
+  padding: 10px 2rem;
+  max-width: 635px;
+  margin-bottom: 1px;
+  margin-top: 10px;
+}
+
+.netflix-faq .para{
+  margin-top: 1px;
+  display: none;
+}
+
+.netflix-faq li .toggle-btn{
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+
+/* Watch & Row Component */
+
+.watch{
+  padding: 0rem 1.8rem;
+}
+
+.row-container h2{
+  font-weight: bold;
+}
+
+.row-container .flex{
+  padding: 10px 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.row-container .flex::-webkit-scrollbar{
+  display: none;
+}
+
+.row-container .flex .movie-img{
+  width: 10rem;
+  object-fit: contain;
+  margin: 0 6px;
+}
+
+.row-container .flex .movie-img:hover{
+  transition: transform 350ms ease-in;
+  transform: scale(1.1);
+  -moz-transition: transform 350ms ease-in;
+  -moz-transform: scale(1.1);
+  -webkit-transition: transform 350ms ease-in;
+  -webkit-transform: scale(1.1);
+  -ms-transition: transform 350ms ease-in;
+  -ms-transform: scale(1.1);
+  box-shadow: 8px 8px 4px 1px rgba(0, 0, 0, .4);
+  z-index: 2;
+}
+
+/* Banner */
+
+.banner{
+  background-size: cover;
+  background-position: center center;
+  margin-top: -5rem;
+  z-index: -1;
+  width: 100%;
+  height: 35rem;
+  overflow: hidden;
+}
+
+.banner .background-gradient{
+  height: 35rem;
+}
+
+.banner-contents{
+  position: relative;
+  top: 10rem;
+  left: 2rem;
+}
+
+.banner-contents .banner-btn{
+  padding: 0.8rem 2.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  margin-right: 2rem;
+  border-radius: 0.2vw;
+  background: rgba(51, 51, 51, 0.5);
+}
+
+.banner-contents .banner-btn:hover{
+  color: #000;
+  background-color: #e6e6e6;
+  transition: all 0.2s;
+}
+
+.banner-contents p{
+  max-width: 800px;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.banner-gradient{
+  position: relative;
+  height: 2rem;
+  top: -2rem;
+  background: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+/* Footer */
+
+.footer .grid{
+  padding: 3rem 15rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.footer .grid .flex p{
+  color: var(--gray-color);
+}
+
+.footer .grid .flex ul li{
+  font-size: 13px;  
+  margin: 12px 0;
+}
+
+.footer .grid .flex ul li a:hover, .footer .grid .flex p a:hover{
+  text-decoration: underline;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1024px){
+
+  .download-card{
+    width: 18em;
+    height: 4.5rem;
+    left: 14%;
+    padding: 5px;
+  }
+
+  .download-card .boxshot{
+    width: 2.5rem;
+  }
+
+  .download-card .download-gif{
+    margin-left: 2.5rem;
+  }
+
+  .footer .grid{
+    padding: 3rem 10rem;
+  }
+}
+
+
+@media only screen and (max-width: 949px) and (min-width: 550px){
+  .grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+    text-align: center;
+  }
+  
+  .grid h1{
+    font-size: 2.5rem;
+  }
+
+  .footer .grid{
+    text-align: left;
+    padding: 3rem 4rem;
+  }
+
+  .download-card{
+    width: 20em;
+    left: 29%;
+    padding: 6px;
+  }
+
+  .banner .banner-contents p{
+    max-width: 600px;
+  }
+}
+
+@media only screen and (max-width: 549px) and (min-width: 400px){
+  .loader{
+    left: 45%;
+  }
+
+  .grid{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+    text-align: center;
+  }
+
+  .navbar{
+    padding: 0.8rem 0;
+  }
+
+  .navbar .container{
+    padding: 10px;
+  }
+
+  .banner .banner-contents{
+    top: 10rem;
+    left: 0.7rem;
+  }
+
+  .banner .banner-contents p{
+    max-width: 400px;
+    font-size: 1.1rem;
+  }
+
+  .watch{
+    padding: 0rem 0.7rem;
+  }
+
+  .navbar .navbar-logo{
+    height: 4.5rem;
+    top: 10px;
+  }
+
+  .navbar-signInBtn{
+    padding: 8px 10px;
+  }
+
+  .main{
+    height: 70vh;
+  }
+
+  h1{
+    font-size: 1.8rem;
+  }
+
+  h2{
+    font-size: 1.3rem;
+  }
+
+  .header-btn{
+    margin: -40px auto;
+  }
+
+  .netflix-tv .container, .netflix-mobile .container, .netflix-devices .container, .netflix-faq .container{
+    padding: 2rem 1rem;
+    margin: 0;
+  }
+
+  .netflix-faq .items{
+    padding: 8px 1rem;
+  }
+
+  .netflix-faq li .toggle-btn{
+    height: 1.5rem;
+  }
+
+  .download-card{
+    left: 16%;
+    -moz-padding-end: 3.5px;
+    transform: none;
+    -moz-transform: translate(30px, -100px);
+    -webkit-transform: translate(30px, -100px);
+    -ms-transform: translate(30px, -100px);
+  }
+
+  .footer .container{
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .footer .grid{
+    gap: 0;
+  }
+
+  .footer .flex:nth-child(2){
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer .flex div:nth-child(1), .footer .flex div:nth-child(2){
+    margin-bottom: 0;
+  }
+
+  .footer .flex div:nth-child(3), .footer .flex div:nth-child(4){
+    margin-top: -12px;
+  }
 }
